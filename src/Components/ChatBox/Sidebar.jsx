@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Assets/css/sidebar.css";
+import "../../Assets/css/sidebar.css";
 import Avatar from "./Avatar.jsx";
 import ChatItem from "./ChatItem.jsx";
 import ContactItem from "./ContactItem.jsx";

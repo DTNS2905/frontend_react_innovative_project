@@ -1,4 +1,4 @@
-import "../Assets/css/message.css";
+import "../../Assets/css/message.css";
 
 export default function Message({ owner, msg, openImageViewer }) {
   return (

@@ -1,41 +1,41 @@
-.app-container {
-    text-align: center;
-    padding: 20px;
-}
-
 .login-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: center; /* center vertically */
+    height: 100vh; /* make container full height of viewport */
 }
 
-.login-form .form-group {
-    margin-bottom: 15px;
+.login-form {
+    width: 300px; /* set a fixed width for the form */
 }
 
-.login-form .form-input {
+/* Additional styling for form elements */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-input {
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-.login-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    border: none;
-    color: white;
-    cursor: pointer;
     border-radius: 5px;
-}
-
-.login-button:hover {
-    background-color: #0056b3;
 }
 
 .error-message {
-    color: red;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

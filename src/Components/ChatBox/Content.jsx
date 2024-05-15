@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "../Assets/css/content.css";
+import "../../Assets/css/content.css";
 import Avatar from "./Avatar.jsx";
 import Message from "./Message.jsx";
-import { SeedMessages } from "../../../chatting/chatting-api/src/data/Messages.js";
+import { SeedMessages } from "../../data/Messages.js"
 import ImageSlider from "./ImageSlider.jsx";
 import InfoContainer from "./InfoContainer.jsx";
 

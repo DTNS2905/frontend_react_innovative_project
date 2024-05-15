@@ -1,29 +1,22 @@
 import React, { useState } from 'react';
 import { Constants } from "../Constants/Constansts.jsx";
-import "../Assets/css/newLogin.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { IoKey } from "react-icons/io5";
+import { IoPersonSharp } from "react-icons/io5";
 
 const NewLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-
-    const navigate = useNavigate();  // Hook to navigate programmatically
+    const navigate = useNavigate();
 
     const login = async (username, password) => {
         try {
             const response = await axios.post(
                 `${Constants.API_URL}${Constants.API_ENDPOINTS.AUTH.TOKEN}`,
-                {
-                    username,
-                    password,
-                },
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
+                { username, password },
+                { headers: { 'Content-Type': 'application/json' } }
             );
             const { access, refresh } = response.data;
             sessionStorage.setItem('atoken', access);
@@ -40,47 +33,53 @@ const NewLogin = () => {
         try {
             const response = await login(username, password);
             console.log('Login successful:', response);
-            navigate('/home');  // Navigate to home page on successful login
+            navigate('/home');
         } catch (error) {
-            if (error.includes("invalid credentials")) {
-                setError("Invalid username or password.");
-            } else if (error.includes("user not found")) {
-                setError("User not found.");
-            } else {
-                setError("An error occurred. Please try again later.");
-            }
+            setError(error);
         }
     };
 
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        // Handle signup logic here
+    };
+
     return (
-        <div className="login-container">
-            <h2>Login</h2>
-            <form onSubmit={handleLogin} className="login-form">
-                <div className="form-group">
-                    <label htmlFor="username">Username:</label>
-                    <input
-                        type="text"
-                        id="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                        className="form-input"
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                        className="form-input"
-                    />
-                </div>
-                {error && <div className="error-message" style={{ color: 'red' }}>{error}</div>}
-                <button type="submit" className="login-button">Login</button>
-            </form>
+        <div className="bg-banner-image bg-cover h-screen flex justify-center items-center">
+            <div className="lg:w-[450px] bg-white py-2 px-10 rounded-bl-[40px] rounded-se-[40px]">
+                <h1 className="text-4xl text-blue-900 text-center mb-6 transition-all">Login</h1>
+                <form onSubmit={handleLogin} className="w-full">
+                    <div className="bg-gray-200 flex items-center gap-5 my-4 p-4 rounded">
+                        <IoPersonSharp className="text-gray-700 text-xl"/>
+                        <input
+                            type="text"
+                            className="bg-transparent border-black w-full outline-none"
+                            placeholder="Your Username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </div>
+                    <div className="bg-gray-200 flex items-center gap-5 my-4 p-4 rounded">
+                        <IoKey className="text-gray-700 text-xl"/>
+                        <input
+                            type="password"
+                            className="bg-transparent border-black w-full outline-none"
+                            placeholder="Your Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    {error && <div className="text-red-500">{error}</div>}
+                    <div className="flex justify-center gap-8 mt-10">
+                        <button
+                            type="submit"
+                            className="text-xl text-white py-2 w-36 rounded-3xl bg-blue-900"
+                        >
+                            Login
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

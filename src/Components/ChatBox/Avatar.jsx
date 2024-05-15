@@ -1,4 +1,4 @@
-import NoAvatar from "../Assets/images/noavatar.png";
+import NoAvatar from "../../Assets/images/noavatar.png";
 
 export default function Avatar({ src, username, height, width }) {
   return (

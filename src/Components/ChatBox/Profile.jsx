@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Assets/css/profile.css";
+import "../../Assets/css/profile.css";
 import Avatar from "./Avatar.jsx";
 
 export default function Profile({ open, setOpen }) {

@@ -1,83 +1,101 @@
-import React from 'react'
-
-import { AiOutlineSearch } from 'react-icons/ai'
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import { BsHouseDoor } from "react-icons/bs";
-import { BsTelephone } from "react-icons/bs";
+import React, { useState } from 'react';
+import { AiOutlineSearch, AiOutlineCloseCircle } from 'react-icons/ai';
+import { BsHouseDoor, BsTelephone } from 'react-icons/bs';
 
 const Search = () => {
-  return (
-    <div className="searchDiv grid gap-10 bg-greyIsh rounded-[10px] p-[3rem]">
-       <form action="">
-           <div className="firstDiv flex justify-between items-center rounded-[8px] gap-[10px] bg-white p-5 shadow-lg shadow-greyIsh-700">
-               <div className="flex gap-2 items-center">
-               <AiOutlineSearch className="text-[25px] icon"/>
-               <input type="text" className="bg-transparent text-blue-500 focus:outline-none w-[100%]" placeholder="Search Here....."/>
-                   <AiOutlineCloseCircle className="text-[30px] text-[#a5a6a6] hover:text-textColor icon"/>
-               </div>
+    const [searchValue, setSearchValue] = useState('');
+    const [roomValue, setRoomValue] = useState('');
+    const [phoneValue, setPhoneValue] = useState('');
 
-               <div className="flex gap-2 items-center">
-               <BsHouseDoor className="text-[25px] icon"/>
-               <input type="text" className="bg-transparent text-blue-500 focus:outline-none w-[100%]" placeholder="Search Room....."/>
-                   <AiOutlineCloseCircle className="text-[30px] text-[#a5a6a6] hover:text-textColor icon"/>
-               </div>
+    const clearSearchValue = () => {
+        setSearchValue('');
+    };
 
-               <div className="flex gap-2 items-center">
-               <BsTelephone className="text-[25px] icon"/>
-               <input type="text" className="bg-transparent text-blue-500 focus:outline-none w-[100%]" placeholder="Search Phone....."/>
-                   <AiOutlineCloseCircle className="text-[30px] text-[#a5a6a6] hover:text-textColor icon"/>
-               </div>
+    const clearRoomValue = () => {
+        setRoomValue('');
+    };
 
+    const clearPhoneValue = () => {
+        setPhoneValue('');
+    };
 
-               <button className="bg-blueColor h-full p-5 px-10 rounded-[10px] text-white cursor-pointer hover:bg-blue-300">Search</button>
+    return (
+        <div className="searchDiv grid gap-10 bg-gray-200 rounded-lg p-6 md:p-12">
+            <form action="">
+                <div className="grid gap-6 md:grid-cols-3">
+                    <div className="flex items-center rounded-lg bg-white p-3 shadow-lg shadow-gray-700">
+                        <AiOutlineSearch className="text-3xl text-gray-500 mr-2" />
+                        <input
+                            type="text"
+                            className="bg-transparent text-blue-500 focus:outline-none flex-1"
+                            placeholder="Search Here....."
+                            value={searchValue}
+                            onChange={(e) => setSearchValue(e.target.value)}
+                        />
+                        <AiOutlineCloseCircle className="text-4xl text-gray-500 hover:text-blue-500 cursor-pointer" onClick={clearSearchValue} />
+                    </div>
 
-           </div>
-       </form>
+                    <div className="flex items-center rounded-lg bg-white p-3 shadow-lg shadow-gray-700">
+                        <BsHouseDoor className="text-3xl text-gray-500 mr-2" />
+                        <input
+                            type="text"
+                            className="bg-transparent text-blue-500 focus:outline-none flex-1"
+                            placeholder="Search Room....."
+                            value={roomValue}
+                            onChange={(e) => setRoomValue(e.target.value)}
+                        />
+                        <AiOutlineCloseCircle className="text-4xl text-gray-500 hover:text-blue-500 cursor-pointer" onClick={clearRoomValue} />
+                    </div>
 
+                    <div className="flex items-center rounded-lg bg-white p-3 shadow-lg shadow-gray-700">
+                        <BsTelephone className="text-3xl text-gray-500 mr-2" />
+                        <input
+                            type="text"
+                            className="bg-transparent text-blue-500 focus:outline-none flex-1"
+                            placeholder="Search Phone....."
+                            value={phoneValue}
+                            onChange={(e) => setPhoneValue(e.target.value)}
+                        />
+                        <AiOutlineCloseCircle className="text-4xl text-gray-500 hover:text-blue-500 cursor-pointer" onClick={clearPhoneValue} />
+                    </div>
+                </div>
 
-       <div className="secDiv flex items-center gap-10 justify-center">
-             
-              <div className="singleSearch flex items-center gap-2">
-                  <label htmlFor="relevance" className="text-[#808080] font-semibold">Sort by:</label>
+                <button className="bg-blue-500 text-white rounded-lg py-3 px-6 mt-6 md:col-span-3">
+                    Search
+                </button>
+            </form>
 
-                  <select name="" id="relevance" className="bg-white rounded-[3px] px-4 py-1">
+            <div className="grid gap-6 md:grid-cols-3">
+                <div className="flex items-center">
+                    <label htmlFor="relevance" className="text-gray-600 font-semibold mr-2">
+                        Sort by:
+                    </label>
+                    <select name="relevance" id="relevance" className="bg-white rounded-md px-4 py-2">
                         <option value="">Relevance</option>
                         <option value="">Inclusive</option>
                         <option value="">Start with</option>
                         <option value="">Contains</option>
-                  </select>
-              </div>
+                    </select>
+                </div>
 
-              <div className="singleSearch flex items-center gap-2">
-                  <label htmlFor="relevance" className="text-[#808080] font-semibold">Sort by:</label>
-
-                  <select name="" id="relevance" className="bg-white rounded-[3px] px-4 py-1">
+                <div className="flex items-center">
+                    <label htmlFor="type" className="text-gray-600 font-semibold mr-2">
+                        Type:
+                    </label>
+                    <select name="type" id="type" className="bg-white rounded-md px-4 py-2">
                         <option value="">Relevance</option>
                         <option value="">Inclusive</option>
                         <option value="">Start with</option>
                         <option value="">Contains</option>
-                  </select>
-              </div>
+                    </select>
+                </div>
 
-              <div className="singleSearch flex items-center gap-2">
-                  <label htmlFor="type" className="text-[#808080] font-semibold">Type:</label>
+                <div className="flex items-center">
+                    <span className="text-gray-600 cursor-pointer">Clear all</span>
+                </div>
+            </div>
+        </div>
+    );
+};
 
-                  <select name="" id="relevance" className="bg-white rounded-[3px] px-4 py-1">
-                        <option value="">Relevance</option>
-                        <option value="">Inclusive</option>
-                        <option value="">Start with</option>
-                        <option value="">Contains</option>
-                  </select>
-
-              </div>
-
-              <span className="text-[#a1a1a1] cursor-pointer">Clear all</span>
-
-       </div>
-
-
-    </div>
-  )
-}
-
-export default Search
+export default Search;

@@ -5,21 +5,24 @@ import Rent from './Components/RentDiv/Rent'
 import Value from './Components/ValueDiv/Value'
 import Footer from './Components/FooterDiv/Footer'
 import {createRouter} from "./Router/Custom_router.jsx";
-import Home from "./Components/Home.jsx";
+import Home from "./Components/HomePage/Home.jsx";
 import NotFoundPage from "./Components/404Page.jsx";;
 import Weather_page from "./Components/weather_page.jsx";
 import Login from "./Components/Login.jsx";
 import NewLogin from "./Components/NewLogin.jsx";
+import Chat from "./Components/ChatBox/Chat.jsx";
+import Messenger from "./Components/ChatBox/Messenger.jsx";
 
 const routes = [
     { path: '/', element: <NewLogin /> },
     { path: '/home', component: Home, exact: true, private: true },
     { path: '/weather', component: Weather_page, private: true },
+    { path: 'chat', component: Messenger, private: true },
 ];
 
 const App = () => {
   return (
-      <div>
+      <div className="w-auto">
           {createRouter({
               basename: '',
               routes,
