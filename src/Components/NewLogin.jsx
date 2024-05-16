@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Constants } from "../Constants/Constansts.jsx";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { IoKey } from "react-icons/io5";
 import { IoPersonSharp } from "react-icons/io5";
+import api from "../Api/Api.jsx";
 
 const NewLogin = () => {
     const [username, setUsername] = useState('');
@@ -13,17 +13,17 @@ const NewLogin = () => {
 
     const login = async (username, password) => {
         try {
-            const response = await axios.post(
-                `${Constants.API_URL}${Constants.API_ENDPOINTS.AUTH.TOKEN}`,
+            const response = await api.post(
+                `${Constants.API_ENDPOINTS.AUTH.TOKEN}`,
                 { username, password },
                 { headers: { 'Content-Type': 'application/json' } }
             );
-            const { access, refresh } = response.data;
+            const { access, refresh } = response;
             sessionStorage.setItem('atoken', access);
             sessionStorage.setItem('rtoken', refresh);
-            return response.data;
+            return response;
         } catch (error) {
-            throw error.response?.data || error.message;
+            throw error || 'An unexpected error occurred.';
         }
     };
 
@@ -33,9 +33,9 @@ const NewLogin = () => {
         try {
             const response = await login(username, password);
             console.log('Login successful:', response);
-            navigate('/home');
+            navigate('/');
         } catch (error) {
-            setError(error);
+            setError(error.message || error);
         }
     };
 

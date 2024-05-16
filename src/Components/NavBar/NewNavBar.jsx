@@ -22,7 +22,7 @@ const NewNavbar = () => {
                     <Link to="/weather" className="text-white mx-4 hover:text-gray-300">
                         Weather
                     </Link>
-                    <Link to="/room" className="text-white mx-4 hover:text-gray-300">
+                    <Link to="/booking" className="text-white mx-4 hover:text-gray-300">
                         Room
                     </Link>
                 </div>

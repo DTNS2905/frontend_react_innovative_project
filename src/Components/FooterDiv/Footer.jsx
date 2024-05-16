@@ -36,7 +36,7 @@ const Footer = () => {
                Resources
            </span>
 
-                <div>
+                <div className="grid gap-3">
                     <li className="text-white opacity-[.7] hover:opacity-[1]">Account</li>
                     <li className="text-white opacity-[.7] hover:opacity-[1]">Support Center</li>
                     <li className="text-white opacity-[.7] hover:opacity-[1]">Contact us</li>

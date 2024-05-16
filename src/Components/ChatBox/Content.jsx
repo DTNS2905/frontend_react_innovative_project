@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../../Assets/css/content.css";
 import Avatar from "./Avatar.jsx";
 import Message from "./Message.jsx";
-import { SeedMessages } from "../../data/Messages.js"
+import { SeedMessages } from "../../data/Messages.jsx"
 import ImageSlider from "./ImageSlider.jsx";
 import InfoContainer from "./InfoContainer.jsx";
 

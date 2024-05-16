@@ -21,7 +21,7 @@ const Search = () => {
 
     return (
         <div className="searchDiv grid gap-10 bg-gray-200 rounded-lg p-6 md:p-12">
-            <form action="">
+            <form action="" className="flex flex-col items-center">
                 <div className="grid gap-6 md:grid-cols-3">
                     <div className="flex items-center rounded-lg bg-white p-3 shadow-lg shadow-gray-700">
                         <AiOutlineSearch className="text-3xl text-gray-500 mr-2" />
@@ -65,7 +65,7 @@ const Search = () => {
                 </button>
             </form>
 
-            <div className="grid gap-6 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-3 justify-items-center">
                 <div className="flex items-center">
                     <label htmlFor="relevance" className="text-gray-600 font-semibold mr-2">
                         Sort by:

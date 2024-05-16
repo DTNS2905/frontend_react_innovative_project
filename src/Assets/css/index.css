@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;800&family=Roboto:ital,wght@1,100&display=swap');
+
+
+@import '../../../node_modules/tailwindcss/base.css';
+@import '../../../node_modules/tailwindcss/components.css';
+@import '../../../node_modules/tailwindcss/utilities.css';
+
+
+
+:root{
+  font-family: "Poppins", sans-serif;
+}
+#root {
+  max-width: 100% !important;
+}
+
+body{
+  background: white;
+  max-width: 100%;
+}
+
+li{
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+} 
+
+li:hover::before{
+  position: absolute;
+  content: "";
+  height: 4px;
+  width: 100%;
+  background: #2a68ff;
+  right: 0;
+  bottom: -10px;
+  color: #2a68ff;
+}
+
+.icon{
+  cursor: pointer;
+}
+
+
+

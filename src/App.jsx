@@ -12,19 +12,21 @@ import Login from "./Components/Login.jsx";
 import NewLogin from "./Components/NewLogin.jsx";
 import Chat from "./Components/ChatBox/Chat.jsx";
 import Messenger from "./Components/ChatBox/Messenger.jsx";
+import BookingPage from "./Components/BookingRoom/BookingPage.jsx";
 
 const routes = [
-    { path: '/', element: <NewLogin /> },
-    { path: '/home', component: Home, exact: true, private: true },
+    { path: '/login', element: <NewLogin /> },
+    { path: '/', component: Home, exact: true, private: true },
     { path: '/weather', component: Weather_page, private: true },
-    { path: 'chat', component: Messenger, private: true },
+    { path: '/chat', component: Messenger, private: true },
+    { path: '/booking', component: BookingPage, private: true },
 ];
 
 const App = () => {
   return (
       <div className="w-auto">
           {createRouter({
-              basename: '',
+              basename: '/',
               routes,
               catchAllRoute: <NotFoundPage/>
           })}

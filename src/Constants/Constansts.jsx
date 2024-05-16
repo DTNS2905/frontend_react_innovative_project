@@ -5,6 +5,10 @@ export const Constants = {
             TOKEN: "token",
             REFRESH: "token/refresh",
         },
+        ROOM: {
+            Rooms: "Rooms",
+            Room: "Rooms/{}",
+        }
 
     },
     IMG_ROOT: "",

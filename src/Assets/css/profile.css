@@ -131,6 +131,7 @@
 
 .profile-actions .cancel-btn {
   background-color: whitesmoke;
+  color: black !important;
 }
 
 .profile-actions .save-btn {
