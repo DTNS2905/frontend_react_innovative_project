@@ -18,6 +18,9 @@ body{
   background: white;
   max-width: 100%;
 }
+body {
+  @apply bg-gray-100
+}
 
 li{
   list-style: none;

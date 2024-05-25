@@ -73,7 +73,7 @@ const NewLogin = () => {
                     <div className="flex justify-center gap-8 mt-10">
                         <button
                             type="submit"
-                            className="text-xl text-white py-2 w-36 rounded-3xl bg-blue-900"
+                            className="block text-xl text-white py-2 w-36 rounded-3xl bg-blue-900"
                         >
                             Login
                         </button>

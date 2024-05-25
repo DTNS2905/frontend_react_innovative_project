@@ -1,18 +1,16 @@
-import React from 'react'
-import NavBar from './Components/NavBar/NavBar'
-import Search from './Components/SearchDiv/Search'
-import Rent from './Components/RentDiv/Rent'
-import Value from './Components/ValueDiv/Value'
-import Footer from './Components/FooterDiv/Footer'
-import {createRouter} from "./Router/Custom_router.jsx";
-import Home from "./Components/HomePage/Home.jsx";
-import NotFoundPage from "./Components/404Page.jsx";;
-import Weather_page from "./Components/weather_page.jsx";
-import Login from "./Components/Login.jsx";
-import NewLogin from "./Components/NewLogin.jsx";
-import Chat from "./Components/ChatBox/Chat.jsx";
-import Messenger from "./Components/ChatBox/Messenger.jsx";
-import BookingPage from "./Components/BookingRoom/BookingPage.jsx";
+import React from 'react';
+import Footer from './Components/HomePage/Footer.jsx';
+import { createRouter } from './Router/Custom_router.jsx';
+import Home from './Components/HomePage/Home.jsx';
+import NotFoundPage from './Components/404Page.jsx';
+import Weather_page from './Components/weather_page.jsx';
+import NewLogin from './Components/NewLogin.jsx';
+import Messenger from './Components/ChatBox/Messenger.jsx';
+import BookingPage from './Components/BookingRoom/BookingPage.jsx';
+import FeedbackForm from './Components/FeedbackForm/FeedbackForm.jsx';
+import NewNavbar from './Components/HomePage/NavBar/NewNavBar.jsx';
+import UserProfile from "./Components/Profile/UserProfile.jsx";
+import GGMap from "./Components/Map/GGMap.jsx";
 
 const routes = [
     { path: '/login', element: <NewLogin /> },
@@ -20,18 +18,27 @@ const routes = [
     { path: '/weather', component: Weather_page, private: true },
     { path: '/chat', component: Messenger, private: true },
     { path: '/booking', component: BookingPage, private: true },
+    { path: '/feedback', component: FeedbackForm, private: true },
+    {path: 'profile', component: UserProfile, private: true },
+    { path:'/map', component: GGMap, private: true },
 ];
 
 const App = () => {
-  return (
-      <div className="w-auto">
-          {createRouter({
-              basename: '/',
-              routes,
-              catchAllRoute: <NotFoundPage/>
-          })}
-      </div>
-  )
-}
+    return (
+        <div className="w-auto">
+            {createRouter({
+                basename: '/',
+                routes,
+                catchAllRoute: <NotFoundPage />,
+                children: (
+                    <>
+                        <NewNavbar />
+                    </>
+                ),
+            })}
+            <Footer />
+        </div>
+    );
+};
 
-export default App
+export default App;

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Assuming you're using React Router for navigation
+import { Link } from 'react-router-dom';
 
 const NewNavbar = () => {
     return (
-        <nav className="bg-blueColor py-4 mb-16">
+        <nav className="bg-blueColor py-4 ">
             <div className="container mx-auto flex justify-between items-center">
                 <div className="">
-                    <div className="logoDiv ">
+                    <div className="logoDiv">
                         <h1 className="logo text-[25px] text-white">
-                            <strong>Rent</strong>Yoga
+                            <strong>Rent</strong>Room
                         </h1>
                     </div>
                 </div>
@@ -22,8 +22,11 @@ const NewNavbar = () => {
                     <Link to="/weather" className="text-white mx-4 hover:text-gray-300">
                         Weather
                     </Link>
-                    <Link to="/booking" className="text-white mx-4 hover:text-gray-300">
-                        Room
+                    <Link to="/map" className="text-white mx-4 hover:text-gray-300">
+                        Map
+                    </Link>
+                    <Link to="/profile" className="text-white mx-4 hover:text-gray-300">
+                        Profile
                     </Link>
                 </div>
                 {/* Mobile Menu (Hamburger icon) */}
